@@ -1,18 +1,21 @@
 <!-- todos.component.html -->
 <main>
-    <h1>My todos</h1>
-    <button (click)="createTodo()">+ new</button>
+  <h1>My todos</h1>
+  <button (click)="createTodo()">+ new</button>
+  <div>
     <ul>
-        <li 
-            *ngFor="let todo of todos;">
-            {{ todo.content }}
+        <li *ngFor="let todo of todos" style="display: flex; justify-content: space-between;">
+            <span  style="align-self: center;" *ngIf="todo.content">{{ todo.content }}</span>
+            <span *ngIf="!todo.content">Unnamed Todo</span>
+            <button (click)="deleteToDo(todo.id)">Delete</button>
         </li>
     </ul>
-    <div>
-        🥳 App successfully hosted. Try creating a new todo.
-        <br />
-        <a href="https://docs.amplify.aws/gen2/start/quickstart/">
-            Review next steps of this tutorial.
-        </a>
-    </div>
+  </div>
+  <div>
+    🥳 App successfully hosted. Try creating a new todo.
+    <br />
+    <a href="https://docs.amplify.aws/gen2/start/quickstart/">
+      Review next steps of this tutorial.
+    </a>
+  </div>
 </main>
